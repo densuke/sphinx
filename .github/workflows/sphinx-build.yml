@@ -41,8 +41,9 @@ jobs:
           #find . -ls
           whoami
           echo USER:"${USER}"
-          rm -fr ./*
+          sudo chown -R "${USER}" .
           mv /tmp/html/* .
+          rm -fr ./*
           touch .nojekyll
           git add .
           git commit -m "auto commit(building sample pages)"
