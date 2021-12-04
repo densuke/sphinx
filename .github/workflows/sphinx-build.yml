@@ -31,5 +31,16 @@ jobs:
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY_NAME}}:${{ steps.date.outputs.today }}
             ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY_NAME}}:latest
+      - name: update sample document
+        run: |
+          cd testing
+          make clean html
+          cp -r build/html /tmp/html
+          git checkout gh-pages
+          rm -fr ./*
+          mv /tmp/html/* .
+          touch .nojekyll
+          git add .
+          git commit -m "auto commit(building sample pages)"
 
 
