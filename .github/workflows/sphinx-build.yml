@@ -33,8 +33,7 @@ jobs:
       #       ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY_NAME}}:latest
       - name: update sample document
         run: |
-          mkdir -p /tmp/work
-          cp -r testing /tmp/work
+          cp -vr testing /tmp/work
           docker run -v /tmp/work:/work densuke/sphinx make clean html
           git fetch origin gh-pages
           git checkout gh-pages
