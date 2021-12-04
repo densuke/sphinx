@@ -38,7 +38,7 @@ jobs:
           git fetch origin gh-pages
           git checkout gh-pages
           rm -fr ./*
-          mv /tmp/work/build/html/* .
+          cp /tmp/work/build/html/* .
           touch .nojekyll
           git add .
           git commit -m "auto commit(building sample pages)"
