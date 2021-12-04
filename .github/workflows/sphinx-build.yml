@@ -38,6 +38,8 @@ jobs:
           cp -r build/html /tmp/html
           git fetch origin gh-pages
           git checkout gh-pages
+          find . -ls
+          whoami
           rm -fr ./*
           mv /tmp/html/* .
           touch .nojekyll
