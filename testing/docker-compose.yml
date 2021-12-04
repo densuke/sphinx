@@ -1,8 +1,16 @@
 version: '3'
 services:
-  build:
-    image: densuke/sphinx
+  html:
+    #image: densuke/sphinx
+    build: ..
     volumes:
       - .:/work
-    command: make html latexpdfja
+    command: sphinx-autobuild source build --host=0.0.0.0
+    ports:
+      - 8000:8000
+  pdf:
+    build: ..
+    volumes:
+      - .:/work
+    command: make latexpdfja
     restart: "no"
