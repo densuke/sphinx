@@ -1,0 +1,8 @@
+version: '3'
+services:
+  build:
+    image: densuke/sphinx
+    volumes:
+      - .:/work
+    command: make html latexpdfja
+    restart: "no"
