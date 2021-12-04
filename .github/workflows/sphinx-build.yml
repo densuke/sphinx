@@ -36,6 +36,7 @@ jobs:
           cd testing
           docker run -v `pwd`:/work densuke/sphinx make clean html
           cp -r build/html /tmp/html
+          git fetch origin gh-pages
           git checkout gh-pages
           rm -fr ./*
           mv /tmp/html/* .
