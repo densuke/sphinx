@@ -33,16 +33,13 @@ jobs:
       #       ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY_NAME}}:latest
       - name: update sample document
         run: |
-          cd testing
-          docker run -v `pwd`:/work densuke/sphinx make clean html
-          cp -r build/html /tmp/html
+          mkdir -p /tmp/work
+          cp -r testing /tmp/work
+          docker run -v /tmp/work:/work densuke/sphinx make clean html
           git fetch origin gh-pages
           git checkout gh-pages
-          mkdir /tmp/p
-          ls -a
-          cp -r .git .gitignore /tmp/p/
-          mv /tmp/html/* /tmp/p/
-          cd /tmp/p
+          rm -fr ./*
+          mv /tmp/work/build/html/* .
           touch .nojekyll
           git add .
           git commit -m "auto commit(building sample pages)"
