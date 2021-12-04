@@ -38,12 +38,10 @@ jobs:
           cp -r build/html /tmp/html
           git fetch origin gh-pages
           git checkout gh-pages
-          #find . -ls
-          whoami
-          echo USER:"${USER}"
-          sudo chown -R "${USER}" .
-          mv /tmp/html/* .
-          rm -fr ./*
+          mkdir /tmp/p
+          cp -r .git .gitignore /tmp/p/
+          mv /tmp/html/* /tmp/p/
+          cd /tmp/p
           touch .nojekyll
           git add .
           git commit -m "auto commit(building sample pages)"
