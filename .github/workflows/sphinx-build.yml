@@ -39,6 +39,7 @@ jobs:
           git fetch origin gh-pages
           git checkout gh-pages
           mkdir /tmp/p
+          ls -a
           cp -r .git .gitignore /tmp/p/
           mv /tmp/html/* /tmp/p/
           cd /tmp/p
