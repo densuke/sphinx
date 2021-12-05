@@ -59,3 +59,16 @@ html_theme = 'alabaster'
 html_static_path = ['_static']
 
 today_fmt = "%Y年%B%M日 %H:%m"
+
+# LaTeX-PDF向け
+latex_show_urls = 'footnote'
+
+# latex_documents = {
+#     'targetname': 'sample',
+#     'title': project,
+# }
+latex_documents = [
+    ('index', 'sample.tex', project, author, 'manual'),
+]
+
+# EPub向け
