@@ -33,16 +33,13 @@ jobs:
       #       ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY_NAME}}:latest
       - name: update sample document
         run: |
-          cp -vr testing /tmp/work
-          docker run -v /tmp/work:/work densuke/sphinx make clean html
+          cp -vr testing /tmp/work # テスト用コードを作業用にコピー
           git fetch origin gh-pages
-          git checkout gh-pages
-          cp -vr .git .gitignore /tmp # backup
-          rm -fr ./*
-          cp -vr /tmp/{.git,.gitignore} . # restore
-          cp -vr /tmp/work/build/html/* .
+          git checkout gh-pages # 公開用ブランチに切り替え
+          docker run -v /tmp/work:/work densuke/sphinx make clean html
+          rm -fr [a-zA-Z0-9]* # ゴミ削除
+          cp -vur /tmp/work/build/html/* . # 更新ファイルを再登録
           touch .nojekyll
           git add .
           git commit -m "auto commit(building sample pages)"
-
 
