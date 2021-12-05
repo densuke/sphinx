@@ -43,5 +43,5 @@ jobs:
           git add .
           git config --local user.name "autocommit"
           git config --local user.email "densuke+autocommit@fuga.jp"
-          git commit -m "auto commit(building sample pages)"
+          git commit -m "auto commit(building sample pages)" --allow-empty
           git commit
