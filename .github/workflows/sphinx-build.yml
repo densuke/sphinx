@@ -37,7 +37,9 @@ jobs:
           docker run -v /tmp/work:/work densuke/sphinx make clean html
           git fetch origin gh-pages
           git checkout gh-pages
+          cp -vr .git .gitignore /tmp # backup
           rm -fr ./*
+          cp -vr /tmp/{.git,.gitignore} . # restore
           cp -vr /tmp/work/build/html/* .
           touch .nojekyll
           git add .
