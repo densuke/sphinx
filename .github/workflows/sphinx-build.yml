@@ -41,5 +41,8 @@ jobs:
           cp -vur /tmp/work/build/html/* . # 更新ファイルを再登録
           touch .nojekyll
           git add .
+          git config --local user.name "autocommit"
+          git config --local user.email "densuke+autocommit@fuga.jp"
           git commit -m "auto commit(building sample pages)"
+          git commit
 
