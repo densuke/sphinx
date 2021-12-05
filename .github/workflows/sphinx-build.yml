@@ -45,4 +45,3 @@ jobs:
           git config --local user.email "densuke+autocommit@fuga.jp"
           git commit -m "auto commit(building sample pages)"
           git commit
-
