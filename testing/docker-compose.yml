@@ -12,5 +12,5 @@ services:
     build: ..
     volumes:
       - .:/work
-    command: make latexpdfja
+    command: make clean latexpdfja
     restart: "no"

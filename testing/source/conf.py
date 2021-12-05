@@ -57,3 +57,18 @@ html_theme = 'alabaster'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+today_fmt = "%Y年%B%M日 %H:%m"
+
+# LaTeX-PDF向け
+latex_show_urls = 'footnote'
+
+# latex_documents = {
+#     'targetname': 'sample',
+#     'title': project,
+# }
+latex_documents = [
+    ('index', 'sample.tex', project, author, 'manual'),
+]
+
+# EPub向け
